@@ -14,7 +14,7 @@ class File {
     if (!validation.valid) throw new Error(validation.error);
 
     const users = File.parseCSVToJson(content);
-    return content;
+    return users;
   }
 
   static async getFileContent(filePath) {

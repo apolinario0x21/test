@@ -4,14 +4,14 @@ const { rejects, deepStrictEqual } = require("assert");
 
 (async () => {
   {
-    const filePath = "./mocks/emptyFile-invalid.csv";
+    const filePath = "./mocks/invalid-header.csv";
     const rejection = new Error(error.FILE_FIELDS_ERROR_MESSAGE);
     const result = File.csvToJson(filePath);
     await rejects(result, rejection);
   }
   {
-    const filePath = "./mocks/fourItems.csv";
-    const rejection = new Error(error.FILE_FIELDS_ERROR_MESSAGE);
+    const filePath = "./mocks/fourItems-invalid.csv";
+    const rejection = new Error(error.FILE_LENGTH_ERROR_MESSAGE);
     const result = File.csvToJson(filePath);
     await rejects(result, rejection);
   }
@@ -21,22 +21,22 @@ const { rejects, deepStrictEqual } = require("assert");
     const result = await File.csvToJson(filePath);
     const expected = [
       {
-        name: "luffy",
-        id: 123,
-        profession: "rei dos piratas",
-        birthDay: 2000,
-      },
-      {
-        name: "naruto",
-        id: 456,
-        profession: "hokage",
+        name: "admin",
+        id: 1,
+        profession: "admin",
         birthDay: 2005,
       },
       {
+        name: "user",
+        id: 2,
+        profession: "user",
+        birthDay: 2000,
+      },
+      {
         name: "tester",
-        id: 789,
+        id: 3,
         profession: "tester",
-        birthDay: 2002,
+        birthDay: 1995,
       },
     ];
 

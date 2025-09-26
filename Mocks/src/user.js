@@ -1,9 +1,9 @@
 class User {
-    constructor({ nome, id, profession, age}) {
-        this.nome = nome
+    constructor({ name, id, profession, age}) {
+        this.name = name
         this.id = parseInt(id)
         this.profession = profession
-        this.birthDay = new Date(age).getFullYear() - age
+        this.birthDay = new Date().getFullYear() - age
     }
 }
 
